@@ -143,10 +143,10 @@
 						</div>
 					</div>
 					<?php if($intro_gallery = get_field('intro_gallery')): ?>
-						<ul class="gallery">
+						<ul class="gallery home-gallery">
 							<?php foreach($intro_gallery as $img): ?>
 								<li>
-									<img src="<?php echo $img['sizes']['small']; ?>" alt="">
+									<a href="<?php echo $img['url']; ?>"><img src="<?php echo $img['sizes']['small']; ?>" alt=""></a>
 								</li>
 							<?php endforeach; ?>
 						</ul>

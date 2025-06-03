@@ -378,6 +378,27 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_683e41f1a6c82",
+            "label": "No Events message",
+            "name": "no_events_message",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": "wpautop"
         }
     ],
     "location": [
@@ -398,5 +419,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1747267428
+    "modified": 1748910617
 }

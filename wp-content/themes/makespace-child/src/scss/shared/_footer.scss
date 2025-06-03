@@ -16,6 +16,11 @@
 		color: #fff;
 		font-size: 14px;
 		width: 320px;
+		overflow: hidden;
+
+		@media (max-width: $mobile) {
+			max-width: 300px !important;
+		}
 	}
 	
 	.gm-style-iw-chr{
@@ -39,6 +44,8 @@
 
 	.gm-style-iw-d{
 		// max-height: none !important;
+		overflow: hidden !important;
+		padding-bottom: 10px;
 	}
 	.gm-style-iw-tc{
 		width: 35px;

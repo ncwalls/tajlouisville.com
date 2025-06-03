@@ -154,110 +154,114 @@
 				</div>
 			</section>
 
-			<section class="home-section home-events">
-				<div class="container">
-					<?php if(get_field('events_title')): ?>
-						<h2 class="section-title"><?php the_field('events_title'); ?></h2>
-					<?php endif; ?>
-					<?php
-						$recent_events = get_posts(array(
-							'post_type' => 'msw_events',
-							'orderby' => 'meta_value',
-							'meta_key' => 'start_date',
-							'order' => 'ASC',
-							'posts_per_page' => 2,
-							'fields' => 'ids',
-							'meta_query' => array(
-								array(
-									'key' => 'start_date',
-									'value' => date('Ymd'),
-									'compare' => '>=',
-								)
-							)
-						));
-					?>
-					<?php if($recent_events): ?>
-						<ul class="events">
-							<?php foreach ($recent_events as $event_id): ?>
-								<li class="event">
-									<?php
-										$thumb_image = '';
-										if( get_the_post_thumbnail_url($event_id) ){
-											$thumb_image = get_the_post_thumbnail_url( $event_id, 'medium' );
-										}
-										else{
-											$thumb_image = get_field( 'default_placeholder_image', 'option' )['sizes']['medium'];
-										}
-									?>
-									<figure class="image">
-										<img src="<?php echo $thumb_image; ?>" alt="" loading="lazy">
-									</figure>
-									<div class="content">
-										<h3 class="title"><?php echo get_the_title($event_id); ?></h3>
-										<p class="event-date">
-											<?php
-												$start_date = get_field('start_date', $event_id);
+			<?php
+				$recent_events = get_posts(array(
+					'post_type' => 'msw_events',
+					'orderby' => 'meta_value',
+					'meta_key' => 'start_date',
+					'order' => 'ASC',
+					'posts_per_page' => 2,
+					'fields' => 'ids',
+					'meta_query' => array(
+						array(
+							'key' => 'start_date',
+							'value' => date('Ymd'),
+							'compare' => '>=',
+						)
+					)
+				));
+			?>
+				<section class="home-section home-events">
+					<div class="container">
+						<?php if(get_field('events_title')): ?>
+							<h2 class="section-title"><?php the_field('events_title'); ?></h2>
+						<?php endif; ?>
+						<?php if($recent_events): ?>
+							<ul class="events count-<?php echo count($recent_events); ?>">
+								<?php foreach ($recent_events as $event_id): ?>
+									<li class="event">
+										<?php
+											$thumb_image = '';
+											if( get_the_post_thumbnail_url($event_id) ){
+												$thumb_image = get_the_post_thumbnail_url( $event_id, 'medium' );
+											}
+											else{
+												$thumb_image = get_field( 'default_placeholder_image', 'option' )['sizes']['medium'];
+											}
+										?>
+										<figure class="image">
+											<img src="<?php echo $thumb_image; ?>" alt="" loading="lazy">
+										</figure>
+										<div class="content">
+											<h3 class="title"><?php echo get_the_title($event_id); ?></h3>
+											<p class="event-date">
+												<?php
+													$start_date = get_field('start_date', $event_id);
 
-												if(get_field('end_date', $event_id)){
-													$end_date = get_field('end_date', $event_id);
-												}
-												else{
-													$end_date = $start_date;
-												}
-
-												$start_date_obj = date_create($start_date);
-												$start_date_display = date_format($start_date_obj,"F j, Y");
-												
-												if($end_date == $start_date){
-													echo $start_date_display;
-												}
-												else{
-													$start_year = date_format($start_date_obj,"Y");
-													$start_month = date_format($start_date_obj,"m");
-												
-													$end_date_obj = date_create($end_date);
-													$end_date_display = date_format($end_date_obj,"F j, Y");
-													
-													$end_year = date_format($end_date_obj,"Y");
-													$end_month = date_format($end_date_obj,"m");
-
-													if($start_year == $end_year){
-														$start_date_display = date_format($start_date_obj,"F j");
+													if(get_field('end_date', $event_id)){
+														$end_date = get_field('end_date', $event_id);
+													}
+													else{
+														$end_date = $start_date;
 													}
 
+													$start_date_obj = date_create($start_date);
+													$start_date_display = date_format($start_date_obj,"F j, Y");
+													
+													if($end_date == $start_date){
+														echo $start_date_display;
+													}
+													else{
+														$start_year = date_format($start_date_obj,"Y");
+														$start_month = date_format($start_date_obj,"m");
+													
+														$end_date_obj = date_create($end_date);
+														$end_date_display = date_format($end_date_obj,"F j, Y");
+														
+														$end_year = date_format($end_date_obj,"Y");
+														$end_month = date_format($end_date_obj,"m");
 
-													echo $start_date_display;
-													echo ' - <span>' . $end_date_display . '</span>';
-												}
-											?>
-										</p>
-										<p class="event-time">
-											<?php
-												$start_time = get_field('start_time', $event_id);
-												$start_time_date = date_create($start_time);
-												$start_time_display = date_format($start_time_date, 'g:ia');
+														if($start_year == $end_year){
+															$start_date_display = date_format($start_date_obj,"F j");
+														}
 
-												$end_time = get_field('end_time', $event_id);
-												$end_time_date = date_create($end_time);
-												$end_time_display = date_format($end_time_date, 'g:ia');
 
-												echo $start_time_display . ' - ' . $end_time_display;
-											?>
-										</p>
-										<?php if(get_field('details', $event_id)): ?>
-											<p class="details">
-												<?php the_field('details', $event_id); ?>
+														echo $start_date_display;
+														echo ' - <span>' . $end_date_display . '</span>';
+													}
+												?>
 											</p>
-										<?php endif; ?>
+											<p class="event-time">
+												<?php
+													$start_time = get_field('start_time', $event_id);
+													$start_time_date = date_create($start_time);
+													$start_time_display = date_format($start_time_date, 'g:ia');
 
-										<?php /*<a href="">Get the deets</a>*/ ?>
-									</div>
-								</li>
-							<?php endforeach; ?>
-						</ul>
-					<?php endif; ?>
-				</div>
-			</section>
+													$end_time = get_field('end_time', $event_id);
+													$end_time_date = date_create($end_time);
+													$end_time_display = date_format($end_time_date, 'g:ia');
+
+													echo $start_time_display . ' - ' . $end_time_display;
+												?>
+											</p>
+											<?php if(get_field('details', $event_id)): ?>
+												<p class="details">
+													<?php the_field('details', $event_id); ?>
+												</p>
+											<?php endif; ?>
+
+											<?php /*<a href="">Get the deets</a>*/ ?>
+										</div>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+						<?php else: ?>
+							<div class="no-events-message">
+								<?php the_field('no_events_message'); ?>
+							</div>
+						<?php endif; ?>
+					</div>
+				</section>
 
 		</article>
 	<?php endwhile; ?>

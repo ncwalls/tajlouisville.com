@@ -1,5 +1,5 @@
-# Makespace Child Theme
-The Makespace Child Theme is the basis of all Makespace custom websites and must be used in conjunction with the [Makespace Framework Theme](https://github.com/makespaceweb/makespace-framework).
+# Omythic Child Theme
+The Omythic Child Theme is the basis of all Omythic custom websites and must be used in conjunction with the [Omythic Framework Theme](https://github.com/makespaceweb/makespace-framework).
 
 ## How To Use
 

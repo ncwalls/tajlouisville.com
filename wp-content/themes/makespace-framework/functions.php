@@ -153,7 +153,7 @@ class MakespaceFramework {
 	function acf_show_admin(){
 		// return WP_DEBUG === true;
 		$current_user = wp_get_current_user();
-		if ( $current_user->user_login == 'makespace' || $current_user->user_login == 'Makespace' || str_contains($current_user->user_email, '@makespaceweb.com')) { 
+		if ( $current_user->user_login == 'omythic' || $current_user->user_login == 'makespace' || $current_user->user_login == 'Makespace' || str_contains($current_user->user_email, '@makespaceweb.com')) { 
 			return true;
  		}
 		else { 
@@ -166,16 +166,16 @@ class MakespaceFramework {
 	}
 
 	function admin_footer_text( $text ){
-		$text = 'Powered by <a href="https://www.makespaceweb.com" target="_blank">Makespace</a>';
+		$text = 'Powered by <a href="https://www.omythic.com" target="_blank">Omythic</a>';
 		return $text;
 	}
 
 	function admin_menu(){
 		global $wpdb;
 		acf_add_options_page( array(
-			'page_title' => 'Makespace Theme Options',
-			'menu_title' => 'Makespace',
-			'icon_url' => 'data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTAzIDgxLjEiPjxzdHlsZT4uc3Qwe2ZpbGw6I2ZmZn08L3N0eWxlPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik02Ni4yIDM0YzEuOSAwIDMuNSAxLjYgMy41IDMuNXYzLjJIMzMuM3YtMy4yYzAtMS45IDEuNi0zLjUgMy41LTMuNWgyOS40bTAtMy41SDM2LjhjLTMuOSAwLTcgMy4xLTcgN3Y2LjdoNDMuNHYtMy41LTMuMmMwLTMuOS0zLjEtNy03LTd6Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTY5LjYgNDQuMmwtLjEgNi43SDMzLjRsLS4xLTYuN2gzNi4zbTMuNi0zLjVIMjkuN2wuMSAzLjYuMSA2LjcuMSAzLjRoNDN2LTMuNWwuMS02LjcuMS0zLjV6Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTY5LjUgNTQuNGwtLjEgNi43SDMzLjZsLS4xLTYuN2gzNm0zLjUtMy41SDI5LjhsLjEgMy42LjEgNi43LjEgMy40SDcyLjdsLjEtMy40LjEtNi43LjEtMy42eiIvPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik02OS4zIDY0LjdjMCAuNCAwIDEuMy0uNyAyQzY3LjEgNjggNTEuNSA3NyA1MS41IDc3cy0xNS42LTktMTcuMS0xMC40Yy0uNy0uNy0uNy0xLjYtLjctMmgzNS42bTAtMy40SDMwLjFsLjEgMy42Yy4xIDEuOS43IDMuNCAxLjggNC40IDEuNiAxLjUgMTEuOCA3LjQgMTcuNyAxMC45bDEuNyAxIDEuNy0xYzUuOS0zLjQgMTYuMi05LjQgMTcuNy0xMC45IDEuMi0xLjEgMS44LTIuNiAxLjgtNC40bC4xLTMuNmgtMy40eiIvPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik01MS41IDguMmMyLjggMCAxNS4yIDkgMTYuNyAxMC40LjcuNy43IDEuNi44IDJsLjEuN2MuMSAxLjQuMiAzLjcuMyA1LjYuMSAyLTEuNSAzLjctMy41IDMuN0gzNy4yYy0yIDAtMy42LTEuNy0zLjUtMy43LjEtMS45LjItNC4yLjMtNS42bC4xLS43YzAtLjQgMC0xLjMuNy0yIDEuNS0xLjQgMTMuOS0xMC40IDE2LjctMTAuNG0wLTMuNWMtNC44IDAtMTguNSAxMC44LTE5LjEgMTEuNC0xLjUgMS41LTEuNyAzLjMtMS44IDR2LjJsLS4xLjdjLS4xIDEuNi0uMiAzLjktLjMgNS44LS4xIDEuOS42IDMuOCAxLjkgNS4yIDEuMyAxLjQgMy4yIDIuMiA1LjEgMi4yaDI4LjZjMS45IDAgMy44LS44IDUuMS0yLjIgMS4zLTEuNCAyLTMuMyAxLjktNS4yLS4xLTEuOS0uMi00LjItLjMtNS43bC0uMS0uN1YyMC4xYy0uMS0uNy0uMy0yLjUtMS44LTQtLjEtLjItMTQuMi0xMS40LTE5LjEtMTEuNHoiIGlkPSJYTUxJRF8xM18iLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNNzMuMiAyNS42YzUuNiAzIDEzLjYgOC4xIDIwLjcgMTIuOCA3LjUgNSA3LjUgMTYuMS0uMSAyMC45LS4xIDAtLjEuMS0uMi4xLTIuMyAxLjQtNC43IDIuMS03LjEgMi4xLTYuOSAwLTEzLjMtNS41LTEzLjMtMTMuM1YyNS42bS0zLjUtNS45djI4LjVjMCA0LjYgMS44IDguOSA1LjEgMTIuMSAzLjEgMyA3LjQgNC43IDExLjcgNC43IDMuMiAwIDYuMy0uOSA5LTIuNmwuMi0uMWM0LjYtMi45IDcuMy03LjkgNy40LTEzLjMgMC01LjQtMi42LTEwLjUtNy4yLTEzLjQtOS4xLTYtMTYuMi0xMC40LTIxLTEzbC01LjItMi45eiIgaWQ9IlhNTElEXzlfIi8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTI5LjggMjUuNnYyMi42YzAgNy44LTYuNCAxMy4zLTEzLjMgMTMuMy0yLjQgMC00LjgtLjctNy4xLTIuMS0uMSAwLS4xLS4xLS4yLS4xLTcuNi00LjktNy43LTE2LS4xLTIwLjkgNy4xLTQuNyAxNS4xLTkuOCAyMC43LTEyLjhtMy41LTUuOWwtNS4yIDIuOGMtNC44IDIuNi0xMS44IDYuOS0yMSAxMy00LjUgMy03LjIgOC03LjIgMTMuNHMyLjggMTAuNCA3LjQgMTMuM2wuMi4xYzIuNyAxLjcgNS44IDIuNiA5IDIuNiA5LjMgMCAxNi44LTcuNSAxNi44LTE2LjhWMTkuN3oiIGlkPSJYTUxJRF8yXyIvPjxnPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik02MC45IDEyLjJjLTEuMSAwLTItLjktMi0yVjJjMC0uNy40LTEuNCAxLjEtMS44LjYtLjMgMS40LS4zIDIgLjFsNi4xIDRjLjkuNiAxLjIgMS44LjYgMi44cy0xLjggMS4yLTIuOC42bC0zLTJ2NC41YzAgMS4xLS45IDItMiAyeiIvPjwvZz48Zz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDEuOSAxMi4yYy0xLjEgMC0yLS45LTItMlY1LjdsLTMgMmMtLjkuNi0yLjEuMy0yLjctLjYtLjYtLjktLjQtMi4yLjYtMi44bDYuMS00Yy42LS40IDEuNC0uNCAyLS4xLjYuMyAxLjEgMSAxLjEgMS44djguMmMtLjEgMS4xLTEgMi0yLjEgMnoiLz48L2c+PC9zdmc+',
+			'page_title' => 'Omythic Theme Options',
+			'menu_title' => 'Omythic',
+			'icon_url' => 'data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMTI1IDEzMy4zIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxMjUgMTMzLjM7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGQ9Ik0xMjQuNCwzOC4xYy0wLjctMy40LTE3LjgtMjUtMjguMS0zMi4xYy0xLjMtMC41LTIuNS0xLjItMy44LTEuNUM1Ni44LTQuMyw1NC40LDIuMiwzMC4xLDQuOA0KCUMyOCw1LDI2LDYuNSwyNCw3LjRDMTcuOCwxMCw3LDI0LjIsNiwyNC43Yy0xLDAuNi0xLjUsMy4xLTEuNyw0Yy0wLjEsMC45LDQuNCwwLjgsNi4zLDAuOHMyLjcsMSwyLjcsMXMtMC41LDEuMy0wLjksMi4zDQoJYy0wLjQsMS0xLjMsOC0xLjQsMTIuMUMxMSw0OSwxMSw1NCwxMC45LDYwbDAsMGwwLDBjMCwyLjIsMCw0LjUsMCw2LjljLTAuMSwwLTAuMSwwLTAuMiwwYy0wLjIsMy4yLTAuNCw3LjEtMC42LDExLjENCgljLTEuMi0wLjUtMi4yLTAuOS0zLjEtMS4zYy0zLTEuNC0yLjMtMS44LTMuNy0yLjNzLTIuNSwxLjEtMi41LDEuMWMtMC45LDEuNi0xLjEsMy43LDAsNC42YzEsMC44LDMsNC42LDguNiw4LjF2MC4xDQoJYzAuNywwLjQsMS40LDAuOCwyLjEsMS4xYzAuOSwwLjYsMS45LDEuMiwzLjEsMS44bDAsMGMwLjEsMC4xLDAuMywwLjEsMC41LDAuMnMwLjUsMC4yLDAuNywwLjRjMC41LDAuMiwwLjksMC41LDEuNCwwLjcNCgljMC4zLDAuMSwwLjUsMC4yLDAuOCwwLjRjMC42LDAuMywxLjIsMC41LDEuNywwLjdjMC4yLDAuMSwwLjQsMC4yLDAuNSwwLjJjMC43LDAuMywxLjQsMC42LDIuMSwwLjhsMCwwYzAuMiwwLjEsMC4zLDAuMSwwLjUsMC4yDQoJYy0wLjgsNC44LTEsOC4zLTEuNCw5LjZjLTAuNSwxLjUtMy4yLDcuOC0zLDEwYzAuMiwyLjMsMC43LDYuNCwwLjcsNi42czEuNCwwLjUsMS45LDBzMi44LTAuMSwyLjgtMi4xYzAtMS45LDAuMi01LjIsMC41LTcuMQ0KCWMwLjQtMS45LDAuNS00LjksMi4xLTcuMmMxLjYtMi4yLDEuMy0yLDEuNC0zLjdjMC4xLTAuOSwwLjctMi42LDEuMy00LjFjMC4xLDAsMC4zLDAuMSwwLjUsMC4xbC0wLjQtMC4xYzAtMC4xLDAtMC4xLDAuMS0wLjINCgljNC41LDAuNywxMC4zLDEuNCwxNS45LDEuOGMtMC4yLDQuNSwxLjQsNS4xLDAuOCw2LjdjLTAuNywxLjktMS4yLDkuNy0xLjIsMTAuNnMtMi44LDEyLTIuNiwxMy42YzAuMSwxLjYsMC43LDEuMiwyLjYsMS4yDQoJczUuNi01LjIsNS44LTcuMWMwLjItMS45LDEuOS05LjEsNC42LTEyLjdjMC40LTAuNSwwLjctMSwxLTEuNWwzLjUsMjAuNGMxLDEuMiwyLjMsMi44LDIuNiwzYzAuNCwwLjQsMy42LDAuNywzLjYsMC43DQoJczMuOC0wLjcsMTQuMy03LjdjMy4xLTIuNSw1LjUtNS4xLDYuMi03YzIuMi01LjgtMC43LTUuNS0wLjctNS41cy03LjgsNy45LTEwLjUsOS4xcy00LjIsMS42LTUuNiwxLjNjLTEuNC0wLjMtMS0zLjItMS42LTguMQ0KCWMtMC4yLTEuOC0xLjctNy4yLTEuNS04LjZjMCwwLTEuMy00LjYtMS4yLTkuMWMyLjUtMC42LDUuNi0xLjMsNy4yLTEuN2MxLjItMC4zLDIuNC0wLjUsMy41LTAuOGM2LjctMC40LDExLjItMS40LDE1LjktMw0KCWMxLjUtMC41LDE4LjMtNy4yLDIwLjctOC41czEwLjUtNi45LDExLjctMTAuN1MxMjUuMSw0MS41LDEyNC40LDM4LjF6IE0zNy42LDY1LjljMC43LTIuMSwxLjktNS4yLDIuOC04YzAuOC0yLjgsMi4xLTMuNywyLjYtNS40DQoJYzAuNi0xLjksMS43LTIuNywyLjItMi41YzAuNiwwLjEsMS40LDEuOCwxLjQsMS44cy0wLjEsMTEuOCwwLDE0LjljMCwwLjQsMC4xLDAuOCwwLjEsMS40YzAuMSwyLjEsMC40LDUuNiwwLjcsOS4xDQoJYzAuMiwxLjktMC4yLDMtMC4xLDQuNmMwLDAsMCwwLDAsMC4xYzAsMS4xLTAuNCwyLjQtMC43LDNjLTAuMiwwLjYtMS4xLDEuMi0yLjMsMS40Yy0zLjIsMC4xLTYuNiwwLTkuMy0wLjRjLTAuOS0wLjItMS43LTEtMS44LTIuMg0KCWMwLTEsMC4yLTEuOCwwLjQtMi41YzAuOC0yLjUsMS42LTQuNCwxLjctNUMzNS43LDc0LjYsMzcsNjgsMzcuNiw2NS45eiBNMjMuMSw4MS44Yy0yLjktMC42LTYtMC45LTcuNS0zLjRjMCwwLDEuOC0zNi45LDEuOC00MS4xDQoJczMuNS00LjcsNiwwczguOCwxOS4xLDYuNywyNC42QzI4LDY3LjQsMjYsODIuMywyMy4xLDgxLjh6IE05My43LDY3LjZjLTAuMiwzLjYtMS45LDguOC0zLjUsMTEuMWMtMS43LDIuNS0xNy41LDguNi0xOC4zLDguOQ0KCXMtNi41LDMuMS05LjgsMGMtMy4yLTMuMS00LTMwLjUtNC0zNHMwLjMtMTMuMSwwLjYtMTQuNGMwLjMtMS4zLDEtNCwyLjEtNS44YzEuMi0xLjgsNC41LTIuMSw4LTIuNGMwLjQsMCwwLjcsMCwxLjEsMA0KCWM3LjksMCwxMy44LDIuOSwxNy42LDguNmM0LDcuNiw2LjEsMTYuMyw2LjEsMjYuM0M5My44LDY2LjQsOTMuNyw2Nyw5My43LDY3LjZ6Ii8+DQo8L3N2Zz4NCg==',
 			'redirect' => false,
 			'menu_slug' => 'msw-framework-options',
 			'autoload' => true
@@ -189,7 +189,7 @@ class MakespaceFramework {
 	function admin_notices(){
 		if( get_option( 'msw_admin_notice_acf_delete', false ) ){
 			printf(
-				'<div class="notice notice-error"><p><strong>NOTICE:</strong> You removed a Makespace module from your theme, but the ACF fields remain. If you want to remove the fields as well, <a href="%s">click here to go to your field groups</a>.</p><p>This message only appears once per module deactivation.</p></div>',
+				'<div class="notice notice-error"><p><strong>NOTICE:</strong> You removed a module from your theme, but the ACF fields remain. If you want to remove the fields as well, <a href="%s">click here to go to your field groups</a>.</p><p>This message only appears once per module deactivation.</p></div>',
 				admin_url( 'edit.php?post_type=acf-field-group' )
 			);
 		}
@@ -397,7 +397,7 @@ class MakespaceFramework {
 		if( !is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) ){
 			$activate_acf = activate_plugin( 'advanced-custom-fields-pro/acf.php', null );
 			add_action( 'admin_notices', function(){
-				echo '<div class="notice notice-info is-dismissible"><p><strong>Advanced Custom Fields PRO</strong> is a required plugin for the Makespace theme and has been automatically activated.</p></div>';
+				echo '<div class="notice notice-info is-dismissible"><p><strong>Advanced Custom Fields PRO</strong> is a required plugin for the Omythic theme and has been automatically activated.</p></div>';
 			} );
 		}
 	}
@@ -556,11 +556,11 @@ class MakespaceFramework {
 	}
 
 	function login_enqueue_scripts(){
-		echo '<style type="text/css">body,html{background:#f8f7f2;font-family:arial}body.login h1 a{background-repeat:no-repeat;background-image:url(' . get_template_directory_uri() . '/includes/images/bee.png);background-size:contain;height:66px;line-height:1;width:84px}.wp-core-ui .button.button-large{background:#FF7059;border:none;border-radius:0;box-shadow:none;display:inline-block;font-weight:700;position:relative;text-transform:uppercase;-webkit-transition-property:background-color;transition-property:background-color;-webkit-transition-duration:.5s;transition-duration:.5s;height:36px;line-height:36px;text-shadow:none}.login-action-lostpassword.wp-core-ui .button.button-large{width:100%}.wp-core-ui .button.button-large:hover{background-color:#E65740}.login .message{border-color:#7795B5}.login input[type=text]:focus,.login input[type=password]:focus{border:1px solid #ddd;box-shadow:none}.login form .forgetmenot{margin-top:7px}.login #backtoblog,.login #nav{text-align:center}.login #backtoblog a,.login #nav a{-webkit-transition-property:color;transition-property:color;-webkit-transition-duration:.3s;transition-duration:.3s}.login #backtoblog a:hover,.login #nav a:hover{color:#7795B5}</style>' . PHP_EOL;
+		echo '<style type="text/css">body,html{background:#f8f7f2;font-family:arial}body.login h1 a{background-repeat:no-repeat;background-image:url(' . get_template_directory_uri() . '/includes/images/theme-icon.png);background-size:contain;height:89px;line-height:1;width:84px}.wp-core-ui .button.button-large{background:#FF7059;border:none;border-radius:0;box-shadow:none;display:inline-block;font-weight:700;position:relative;text-transform:uppercase;-webkit-transition-property:background-color;transition-property:background-color;-webkit-transition-duration:.5s;transition-duration:.5s;height:36px;line-height:36px;text-shadow:none}.login-action-lostpassword.wp-core-ui .button.button-large{width:100%}.wp-core-ui .button.button-large:hover{background-color:#E65740}.login .message{border-color:#7795B5}.login input[type=text]:focus,.login input[type=password]:focus{border:1px solid #ddd;box-shadow:none}.login form .forgetmenot{margin-top:7px}.login #backtoblog,.login #nav{text-align:center}.login #backtoblog a,.login #nav a{-webkit-transition-property:color;transition-property:color;-webkit-transition-duration:.3s;transition-duration:.3s}.login #backtoblog a:hover,.login #nav a:hover{color:#7795B5}</style>' . PHP_EOL;
 	}
 
 	function login_headertext(){
-		return 'Built by Makespace.';
+		return 'Built by Omythic.';
 	}
 
 	function login_headerurl(){

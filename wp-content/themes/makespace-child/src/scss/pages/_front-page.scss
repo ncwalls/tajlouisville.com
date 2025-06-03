@@ -54,6 +54,10 @@
 	overflow: hidden;
 	position: relative;
 
+	@media (max-width: $mobile) {
+		height: 90vh;
+	}
+
 	.js &{
 		transition: height 2s;
 
@@ -119,7 +123,8 @@
 			height: pxem(400);
 		}
 		@media (max-width: $mobile) {
-			height: pxem(450);
+			height: pxem(300);
+			// height: pxem(450);
 		}
 		
 		.hero-logo{
@@ -266,7 +271,7 @@
 			font-size: 15vw;
 		}
 		@media (max-width: $mobile) {
-			font-size: 19vw;
+			font-size: 16vw;
 			padding: 0 0.1em;
 		}
 	}
@@ -515,6 +520,11 @@
 		text-align: center;
 	}
 
+	.no-events-message{
+		margin-top: 2em;
+		text-align: center;
+	}
+
 	.events{
 		display: flex;
 		gap: pxem(60);
@@ -524,6 +534,14 @@
 
 		@media (max-width: $laptop) {
 			display: block;
+		}
+
+		&.count-1{
+			justify-content: center;
+
+			.event{
+				max-width: pxem(600);
+			}
 		}
 
 		.event{

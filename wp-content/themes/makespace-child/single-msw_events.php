@@ -221,12 +221,14 @@
 					</div>
 				</div>
 				
+				<?php /* ?>
 				<div class="single-share">
 					<div class="inner">
 						<div class="share-title">Share</div>
 					</div>
 					<?php echo do_shortcode('[addtoany]'); ?>
 				</div>
+				*/ ?>
 		
 				<footer class="single-pagination">
 					<?php

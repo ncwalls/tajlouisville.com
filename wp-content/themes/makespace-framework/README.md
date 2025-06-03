@@ -1,5 +1,5 @@
-# Makespace Framework Theme
-The Makespace Framework Theme is the foundation of all Makespace custom websites and should be used in conjunction with the [Makespace Child Theme](https://github.com/makespaceweb/makespace-child). It is primarily a collection of functions and optimizations, and does not ship with any styles, JavaScript, or stand-alone design.
+# Omythic Framework Theme
+The Omythic Framework Theme is the foundation of all Omythic custom websites and should be used in conjunction with the [Omythic Child Theme](https://github.com/makespaceweb/makespace-child). It is primarily a collection of functions and optimizations, and does not ship with any styles, JavaScript, or stand-alone design.
 
 ## How To Use
 

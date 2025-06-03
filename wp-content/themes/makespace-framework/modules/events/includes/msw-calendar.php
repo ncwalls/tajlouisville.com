@@ -3,7 +3,7 @@
 class MakespaceFrameworkEventsCalendar {
 
 	/* draws a calendar */
-	function draw_calendar($month,$year){
+	public static function draw_calendar($month,$year){
 		/* based on https://davidwalsh.name/php-calendar */
 
 
@@ -320,13 +320,13 @@ class MakespaceFrameworkEventsCalendar {
 
 
 	/* Get Month Name */
-	function get_month_name($m){
+	public static function get_month_name($m){
 		$dateObj = DateTime::createFromFormat('!m', $m);
 		return $dateObj->format('F');
 	}
 
 	/* Get Previous Month */
-	function get_previous_month($date){
+	public static function get_previous_month($date){
 
 		$current_date = new DateTime(date($date));  
 		$previous_month = $current_date->modify('-1 month'); // Modifying object to next month date
@@ -337,7 +337,7 @@ class MakespaceFrameworkEventsCalendar {
 		return $previous_month;
 	}
 	/* Get Next Month */
-	function get_next_month($date){
+	public static function get_next_month($date){
 
 		$current_date = new DateTime(date($date));  
 		$next_month = $current_date->modify('+1 month'); // Modifying object to next month date
@@ -348,7 +348,7 @@ class MakespaceFrameworkEventsCalendar {
 		return $next_month;
 	}
 
-	function day_event_html($event_id){
+	public static function day_event_html($event_id){
 		$event_link = get_permalink($event_id);
 		$event_title = get_the_title($event_id);
 		$event_html = '<p class="day-event">';

@@ -1,2 +1,39 @@
 
 @import "./wp-content/themes/makespace-framework/modules/events/css/msw-events";
+
+.single-event-main-row{
+	border: 0;
+	display: flex;
+	margin-top: pxem(40);
+	padding: 0 0 pxem(40) 0;
+}
+
+.single-event-content{
+	background: $brand-purple;
+	color: #fff;
+	padding: 2em;
+
+	// section{
+	// 	+ section{
+			
+	// 	}
+	// }
+
+	h2{
+		line-height: 1;
+		margin: 0 0 0.3em 0;
+	}
+
+	a{
+		color: #fff;
+	}
+}
+
+.event-map{
+	border-top: 1px solid $brand-black;
+	padding-top: pxem(40);
+
+	#gmap{
+		height: pxem(500);
+	}
+}

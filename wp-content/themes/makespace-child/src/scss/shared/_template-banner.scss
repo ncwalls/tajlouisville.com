@@ -1,9 +1,10 @@
 .msw-page-banner {
-	background-position: center top;
-	background-size: cover;
-	height: 30vw;
+	// background: linear-gradient(-45deg, $brand-red 30%, $brand-orange 50%, $brand-red 70%);
+	// background-position: center top;
+	// background-size: cover;
+	// height: pxem(100);
 
 	@media (max-width: $phablet) {
-		height: 40vw;
+		// height: 40vw;
 	}
 }

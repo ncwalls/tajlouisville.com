@@ -117,7 +117,7 @@
 }
 
 .msw-calendar{
-	// margin-top: 4rem;
+	margin-top: 2em;
 }
 
 .no-events-message{
@@ -138,8 +138,8 @@
 }
 
 .msw-calendar-header{
-	background: rgba($brand-black, 0.23);
-	// color: #fff;
+	background: $brand-purple;
+	color: #fff;
 	display: flex;
 	align-items: flex-end;
 	align-items: center;
@@ -157,7 +157,16 @@
 	@media (max-width: $tablet) {
 		align-items: center;
 		// display: block;
-		padding: 3rem 1.5rem;
+		padding: 2rem 1.5rem;
+	}
+
+	a{
+		color: #fff;
+
+		&:hover{
+			// color: $brand-orange;
+			text-decoration: underline;
+		}
 	}
 
 	.center{
@@ -178,7 +187,7 @@
 		// font-family: $font-family-base;
 		// font-size: 3.2rem;
 		// font-weight: 600;
-		line-height: 1;
+		line-height: 1.1;
 		margin: 0;
 		// text-transform: uppercase;
 		vertical-align: bottom;
@@ -231,7 +240,7 @@
 		}
 
 		.arrow{
-			display: none;
+			// display: none;
 		
 			@media (max-width: $tablet) {
 				display: block;
@@ -241,7 +250,7 @@
 		}
 
 		&:hover{
-			// color: $brand-green;
+			// color: $brand-red;
 		}
 	}
 
@@ -279,7 +288,7 @@
 	.calendar-weekday-heading{
 		// color: $brand-blue;
 		// font-size: 1.8rem;
-		// font-weight: 500;
+		font-weight: 500;
 		// letter-spacing: 0.1rem;
 		padding-bottom: 1rem;
 		// text-transform: uppercase;
@@ -323,8 +332,9 @@
 	}
 
 	.calendar-day{
-		background: none;
-		border: 1px solid $brand-black;
+		background: rgba($brand-red, 0.1);
+		border: 1px solid #fff;
+		border-radius: 0.8rem;
 		// color: $brand-black;
 		display: block;
 		font-size: 1.2rem;
@@ -353,7 +363,10 @@
 		}
 
 		&.current-month{
-			background: $brand-black;
+			// background: $brand-red;
+			background: #fff;
+			border: 1px solid $brand-red;
+			// background: $brand-black;
 		}
 		&.other-month{
 			// border: 1px solid $brand-grey-drk;
@@ -377,6 +390,7 @@
 			display: flex;
 			justify-content: space-between;
 			margin-bottom: 1rem;
+			font-weight: 600;
 		}
 
 	}
@@ -384,7 +398,7 @@
 	.day-number{
 		
 		@media (max-width: $tablet) {
-			// font-size: 1.4rem;
+			font-size: 1.4rem;
 		}
 	}
 
@@ -393,6 +407,7 @@
 		
 		@media (max-width: $tablet) {
 			display: block;
+			font-size: 1.4rem;
 		}
 	}
 
@@ -412,7 +427,7 @@
 		// border-radius: 0.2rem;
 		// color: $brand-black;
 		display: block;
-		font-size: 1.2rem;
+		font-size: 1.5rem;
 		line-height: 1.1;
 		// padding: 0.5rem;
 		margin-top: 0.5rem;
@@ -431,15 +446,15 @@
 
 
 		.event-info-popup{
-			background: #fff;
+			background: $brand-red;
 			// border: 1px solid $brand-black;
 			box-shadow: 0 0.4rem 0.8rem rgba(#000,0.1);
-			color: $brand-black;
+			color: #fff;
 			display: none;
 			font-size: 1.3rem;
 			padding: 1.5rem 1.5rem 2rem 1.5rem;
 			position: absolute;
-			bottom: 100%;
+			bottom: 90%;
 			left: 50%;
 			width: 20rem;
 			transform: translateY(0) translateX(-50%);
@@ -450,7 +465,7 @@
 			}
 
 			&:after{
-				border-top: 0.5rem solid #fff;
+				border-top: 0.5rem solid $brand-red;
 				border-right: 0.5rem solid transparent;
 				border-left: 0.5rem solid transparent;
 				content: '';
@@ -472,7 +487,7 @@
 			.title{
 				display: block;
 				font-size: 1.6rem;
-				// font-weight: 700;
+				font-weight: 600;
 				line-height: 1.1;
 				margin-bottom: 1.2rem;
 			}
@@ -508,6 +523,7 @@
 	}
 }
 
+/*
 .msw-calendar-list{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
@@ -626,6 +642,7 @@
 		margin-top: 1rem;
 	}
 }
+*/
 
 /* single ***************************************************************/
 
@@ -673,7 +690,7 @@
 .single-event-main-row{
 	border-bottom: 1px solid $brand-black;
 	display: flex;
-	align-items: start;
+	// align-items: start;
 	// flex-direction: row-reverse;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -682,9 +699,9 @@
 	position: relative;
 
 	@media (max-width: $laptop) {
-		display: block;
 	}
-	@media (max-width: $phablet) {
+	@media (max-width: $tablet) {
+		display: block;
 		padding-left: 0;
 	}
 
@@ -724,7 +741,7 @@
 		width: 40%;
 	}
 	
-	@media (max-width: $laptop) {
+	@media (max-width: $tablet) {
 		width: 100%;
 	}
 
@@ -735,7 +752,7 @@
 		}
 
 		+ section{
-			margin-top: 2rem;
+			margin-top: 1.5em;
 		}
 	}
 
@@ -775,13 +792,14 @@
 	@media (max-width: $desktop) {
 		width: 56%;
 	}
-	@media (max-width: $laptop) {
-		margin-bottom: 3rem;
+	@media (max-width: $tablet) {
+		margin-top: 2em;
 		width: 100%;
 	}
 
 	img{
 		display: block;
+		border-radius: pxem(13);
 		width: 100%;
 	}
 }
@@ -803,20 +821,20 @@
 	.gallery-thumbs{
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
-		grid-column-gap: 2rem;
-		grid-row-gap: 2rem;
-		margin-top: 2rem;
+		grid-column-gap: 1rem;
+		grid-row-gap: 1rem;
+		margin-top: 1rem;
 		
 		@media (max-width: $tablet) {
-			grid-column-gap: 1.5rem;
-			grid-row-gap: 1.5rem;
-			margin-top: 1.5rem;
+			// grid-column-gap: 1.5rem;
+			// grid-row-gap: 1.5rem;
+			// margin-top: 1.5rem;
 		}
 		@media (max-width: $mobile) {
 			grid-template-columns: 1fr 1fr 1fr;
-			grid-column-gap: 1rem;
-			grid-row-gap: 1rem;
-			margin-top: 1rem;
+			// grid-column-gap: 1rem;
+			// grid-row-gap: 1rem;
+			// margin-top: 1rem;
 		}
 	}
 
@@ -825,11 +843,16 @@
 		cursor: pointer;
 
 		img{
+			border-radius: pxem(10);
+			display: block;
+			aspect-ratio: 1;
+			object-fit: cover;
 			opacity: 1;
 		}
 
 		&.active{
 			border: 3px solid $brand-red;
+			border-radius: pxem(13);
 			cursor: default;
 			// opacity: 0.5;
 
@@ -881,6 +904,14 @@
 
 		&.slick-next{
 			right: 0;
+		}
+	}
+
+	.slick-slide{
+		display: block;
+
+		.slide{
+			display: block !important;
 		}
 	}
 }

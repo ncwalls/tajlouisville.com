@@ -45,6 +45,7 @@
 		<h1><?php echo get_field('events_overview_title', 'option'); ?></h1>
 		<div class="msw-container-main-intro-content"><?php echo get_field('events_overview', 'option'); ?></div>
 
+		<?php /* ?>
 		<div class="msw-calendar-controls">
 
 			<?php if( $list_view === true ): ?>
@@ -166,25 +167,25 @@
 				</div>
 			</div>
 		</div>
-
+*/ ?>
 		<?php
-			if(isset($_GET['view']) && $_GET['view'] == 'list'){
+			// if(isset($_GET['view']) && $_GET['view'] == 'list'){
 
-				if( file_exists( get_stylesheet_directory() . '/msw-events/msw_events-list.php' ) ){
-					include_once( get_stylesheet_directory() . '/msw-events/msw_events-list.php' );	
-				}
-				else{
-					include_once( get_template_directory() . '/modules/events/includes/msw_events-list.php' );
-				}
-			}
-			else{
+			// 	if( file_exists( get_stylesheet_directory() . '/msw-events/msw_events-list.php' ) ){
+			// 		include_once( get_stylesheet_directory() . '/msw-events/msw_events-list.php' );	
+			// 	}
+			// 	else{
+			// 		include_once( get_template_directory() . '/modules/events/includes/msw_events-list.php' );
+			// 	}
+			// }
+			// else{
 				if( file_exists( get_stylesheet_directory() . '/msw-events/msw_events-month.php' ) ){
 					include_once( get_stylesheet_directory() . '/msw-events/msw_events-month.php' );	
 				}
 				else{
 					include_once( get_template_directory() . '/modules/events/includes/msw_events-month.php' );
 				}
-			}
+			// }
 		?>
 	
 	</div>

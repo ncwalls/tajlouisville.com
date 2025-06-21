@@ -9,17 +9,16 @@
 			// $contact_info_hours = $contact_info['hours'];
 			// $contact_info_map = $contact_info['map'];
 		?>
-		<aside class="footer-map">
-			<div id="gmap" data-maxZoom="18" data-minZoom="1"></div>
-		</aside>
-		<footer class="site-footer">
-			<?php if(get_field('footer_logo', 'option')): ?>
-				<img src="<?php echo get_field('footer_logo', 'option'); ?>" alt="" class="bg">
-				<div class="footer-logo">
-					<img src="<?php echo get_field('footer_logo', 'option'); ?>" alt="">
-				</div>
-			<?php endif; ?>
-			<div class="site-footer-menu">
+		<?php /*if(is_front_page()): ?>
+			<aside class="footer-map">
+				<div id="gmap" data-maxZoom="18" data-minZoom="1"></div>
+			</aside>
+		<?php endif;*/ ?>
+		<aside class="social-links">
+			<div class="container">
+				<?php if(get_field('social_heading', 'option')): ?>
+					<div class="section-title"><?php echo get_field('social_heading', 'option'); ?></div>
+				<?php endif; ?>
 				<?php if(have_rows('social_media_links', 'option')): ?>
 					<ul class="footer-social">
 						<?php while(have_rows('social_media_links', 'option')): the_row(); ?>
@@ -42,6 +41,16 @@
 						<?php endwhile; ?>
 					</ul>
 				<?php endif; ?>
+			</div>
+		</aside>
+		<footer class="site-footer">
+			<?php if(get_field('footer_logo', 'option')): ?>
+				<img src="<?php echo get_field('footer_logo', 'option'); ?>" alt="" class="bg">
+				<div class="footer-logo">
+					<img src="<?php echo get_field('footer_logo', 'option'); ?>" alt="">
+				</div>
+			<?php endif; ?>
+			<div class="site-footer-menu">
 				
 				<nav class="footer-inlinks">
 					<p class="copyright" role="contentinfo">&copy;<?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?>  All rights reserved.</p>

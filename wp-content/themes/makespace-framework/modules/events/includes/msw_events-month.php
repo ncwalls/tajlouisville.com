@@ -54,10 +54,12 @@
 				<span class="year"><?php echo $view_year; ?></span>
 			</h2>
 			
+			<?php /* ?>
 			<div class="msw-calendar-views-nav">
 				<a href="<?php echo $events_archive_link; ?>" class="month-view-link <?php echo $list_view === false ? 'active' : ''; ?>"><i class="far fa-calendar-alt"></i><span class="screen-reader-text">Month View</span></a>
 				<a href="<?php echo $events_archive_link; ?>?view=list" class="list-view-link <?php echo $list_view === true ? 'active' : ''; ?>"><i class="fas fa-list-ul"></i><span class="screen-reader-text">List View</span></a>
 			</div>
+			*/ ?>
 		</div>
 		<a href="<?php echo $previous_month_link; ?>" class="msw-calendar-nav-link msw-calendar-prev-month">
 			<i class="arrow fal fa-angle-left"></i>

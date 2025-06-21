@@ -102,11 +102,15 @@
 }
 
 .single-pagination{
+	background: $brand-red;
+	color: #fff;
 	line-height: 1;
-	margin-top: pxem(60);
+	margin-top: pxem(40);
+	padding: pxem(20);
 	position: relative;
 	text-transform: uppercase;
 	width: 100%;
+
 
 	ul{
 		align-items: center;
@@ -168,24 +172,34 @@
 		&.all{
 			justify-content: center;
 			text-align: center;
+			
+			&:hover{
+				text-decoration: underline;
+			}
 		}
 	}
 
 	a{
+		color: #fff;
 		display: flex;
 		align-items: center;
-		font-size: pxem(20);
-		font-weight: 700;
+		// font-size: pxem(20);
+		font-weight: 600;
 		// letter-spacing: 0.02em;
 		text-decoration: none;
 		text-transform: uppercase;
 
 		&:hover{
+			// color: $brand-black;
+
+			.text{
+				text-decoration: underline;
+			}
 		}
 
 		i{
 			display: inline-block;
-			font-size: 2em;
+			font-size: 1.1em;
 		}
 	}
 }

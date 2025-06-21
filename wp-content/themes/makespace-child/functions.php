@@ -125,7 +125,7 @@ class MakespaceChild {
 
 			$infowindow_content = '<div class="infowindow-content">
 				<div class="col">
-					<p>' . $contact_info_address . '</p>
+					<p><b>Taj Louisville</b><br>' . $contact_info_address . '</p>
 					<p><b>Reservations</b><br>' . $contact_info_phone . '</p>
 				</div>
 				<div class="col">

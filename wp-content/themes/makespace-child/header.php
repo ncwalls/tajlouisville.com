@@ -12,7 +12,7 @@
 
 <body <?php body_class(); ?>>
 	<a class="visually-hidden skip-link" href="#MainContent">Skip to content</a>
-	<?php /* ?><a href="javascript:void(0)" class="nav-toggle" id="ocn-overlay"></a>
+	<a href="javascript:void(0)" class="nav-toggle" id="ocn-overlay"></a>
 	<div id="ocn">
 		<div id="ocn-inner">
 			<div id="ocn-top">
@@ -23,14 +23,16 @@
 					<span class="screen-reader-text" id="ocn-toggle-label">Close off canvas navigation</span>
 				</button>
 			</div>
-			<?php wp_nav_menu( array(
-				'container' => 'nav',
-				'container_id' => 'ocn-nav-primary',
-				'theme_location' => 'primary',
-				'before' => '<span class="ocn-link-wrap">',
-				'after' => '<button aria-pressed="false" name="Menu item dropdown toggle" class="ocn-sub-menu-button"></button></span>',
-				'walker' => new sub_menu_walker
-			) ); ?>
+			<?php
+			// wp_nav_menu( array(
+			// 	'container' => 'nav',
+			// 	'container_id' => 'ocn-nav-primary',
+			// 	'theme_location' => 'primary',
+			// 	'before' => '<span class="ocn-link-wrap">',
+			// 	'after' => '<button aria-pressed="false" name="Menu item dropdown toggle" class="ocn-sub-menu-button"></button></span>',
+			// 	'walker' => new sub_menu_walker
+			// ) );
+			?>
 		</div>
 	</div>
 	<header class="site-header" role="banner">
@@ -42,11 +44,11 @@
 			</div>
 			<div class="site-header-menu">
 				<?php
-					wp_nav_menu( array(
-						'container' => 'nav',
-						'container_id' => 'large-nav-primary',
-						'theme_location' => 'primary'
-					) );
+					// wp_nav_menu( array(
+					// 	'container' => 'nav',
+					// 	'container_id' => 'large-nav-primary',
+					// 	'theme_location' => 'primary'
+					// ) );
 				?>
 			</div>
 			<button name="Mobile navigation toggle" aria-pressed="false" class="nav-toggle" type="button" id="nav-toggle" aria-labelledby="nav-toggle-label">
@@ -55,10 +57,10 @@
 			</button>
 		</div>
 	</header>
-	*/ ?>
+	
 
 	<div id="MainContent" class="wrapper" role="main">
 
-		<?php //if( !is_front_page() ) : ?>
-			<?php //get_template_part( 'template', 'banner' ); ?>
-		<?php //endif; ?>
+		<?php if( !is_front_page() ) : ?>
+			<?php get_template_part( 'template', 'banner' ); ?>
+		<?php endif; ?>

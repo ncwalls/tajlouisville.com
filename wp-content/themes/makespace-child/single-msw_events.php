@@ -23,46 +23,6 @@
 				
 				<div class="single-event-main-row">
 
-					<?php if(get_field('event_images')): $gallery_imgs = get_field('event_images'); ?>
-						<div class="single-event-images-container">
-							<div class="single-event-image-slider" id="single-event-image-slider">
-								<?php if( get_the_post_thumbnail_url() ): ?>
-									<div class="slide">
-										<a href="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>"><img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>" alt=""></a>
-									</div>
-								<?php endif; ?>
-								<?php foreach($gallery_imgs as $img): ?>
-									<div class="slide">
-										<div>
-											<a href="<?php echo $img['sizes']['large']; ?>"><img src="<?php echo $img['sizes']['large']; ?>" alt=""></a>
-										</div>
-									</div>
-								<?php endforeach; ?>
-							</div>
-							<div class="single-event-image-gallery">
-								<?php /*if( get_the_post_thumbnail_url() ): ?>
-									<div class="main-img">
-										<img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>" alt="">
-									</div>
-								<?php endif;*/ ?>
-								<div class="gallery-thumbs">
-									<div class="thumb-img active" data-action="event-gallery-thumb" data-target="0">
-										<a href="#single-event-image-slider"><img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' ); ?>" alt=""></a>
-									</div>
-									<?php $img_count = 0; foreach($gallery_imgs as $img): $img_count++; ?>
-										<div class="thumb-img" data-action="event-gallery-thumb" data-target="<?php echo $img_count; ?>">
-											<a href="#single-event-image-slider"><img src="<?php echo $img['sizes']['thumbnail']; ?>" alt=""></a>
-										</div>
-									<?php endforeach; ?>
-								</div>
-							</div>
-						</div>
-					<?php elseif( get_the_post_thumbnail_url() ): ?>
-						<div class="single-event-image">
-							<img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>" alt="">
-						</div>
-					<?php endif; ?>
-
 					<div class="single-event-content">
 						<section class="event-date">
 							<h2>Date:</h2>
@@ -122,7 +82,9 @@
 							<section class="event-location">
 								<h2>Location:</h2>
 								<p>
-									<strong><?php the_field('location_name'); ?></strong><br>
+									<?php if(get_field('location_name')): ?>
+										<strong><?php the_field('location_name'); ?></strong><br>
+									<?php endif; ?>
 									<?php $event_location = get_field('location'); ?>
 
 									<?php if($event_location): 
@@ -198,7 +160,7 @@
 							</section>
 						<?php endif; ?>
 
-						<?php if(get_field('tickets_product')): ?>
+						<?php /*if(get_field('tickets_product')): ?>
 							<section class="event-details">
 								<?php 
 								$timestamp = $start_date . $start_time;
@@ -206,9 +168,9 @@
 								?>
 								<a href="<?php echo get_permalink(get_field('tickets_product')) . '?event=' . get_the_ID() . '&datetime=' . $timestamp; ?>" class="button">Buy Tickets</a>
 							</section>
-						<?php endif; ?>
+						<?php endif;*/ ?>
 
-						<?php $calendar_links = MakespaceFrameworkEventsModule::msw_calendar_links(get_the_ID()); ?>
+						<?php /* $calendar_links = MakespaceFrameworkEventsModule::msw_calendar_links(get_the_ID()); ?>
 						<div class="add-to-calendar">
 							<p><i class="fal fa-calendar-alt"></i> Add To Calendar</p>
 							<ul class="links">
@@ -217,8 +179,52 @@
 								<li><a href="<?php echo $calendar_links['office365']; ?>" target="_blank">Office 365</a></li>
 								<li><a href="<?php echo $calendar_links['ics']; ?>" target="_blank">Download ICS</a></li>
 							</ul>
-						</div>
+						</div>*/ ?>
 					</div>
+					
+					<?php if(get_field('event_images')): $gallery_imgs = get_field('event_images'); ?>
+						<div class="single-event-images-container">
+							<div class="single-event-image-slider" id="single-event-image-slider">
+								<?php if( get_the_post_thumbnail_url() ): ?>
+									<div class="slide">
+										<a href="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>"><img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>" alt=""></a>
+									</div>
+								<?php endif; ?>
+								<?php foreach($gallery_imgs as $img): ?>
+									<div class="slide">
+										<div>
+											<a href="<?php echo $img['sizes']['large']; ?>"><img src="<?php echo $img['sizes']['large']; ?>" alt=""></a>
+										</div>
+									</div>
+								<?php endforeach; ?>
+							</div>
+							<div class="single-event-image-gallery">
+								<?php /*if( get_the_post_thumbnail_url() ): ?>
+									<div class="main-img">
+										<img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>" alt="">
+									</div>
+								<?php endif;*/ ?>
+								<div class="gallery-thumbs">
+									<div class="thumb-img active" data-action="event-gallery-thumb" data-target="0">
+										<a href="#single-event-image-slider"><img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' ); ?>" alt=""></a>
+									</div>
+									<?php $img_count = 0; foreach($gallery_imgs as $img): $img_count++; ?>
+										<div class="thumb-img" data-action="event-gallery-thumb" data-target="<?php echo $img_count; ?>">
+											<a href="#single-event-image-slider"><img src="<?php echo $img['sizes']['thumbnail']; ?>" alt=""></a>
+										</div>
+									<?php endforeach; ?>
+								</div>
+							</div>
+						</div>
+					<?php elseif( get_the_post_thumbnail_url() ): ?>
+						<div class="single-event-image">
+							<img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>" alt="">
+						</div>
+					<?php endif; ?>
+				</div>
+
+				<div class="event-map">
+					<div id="gmap" data-maxZoom="18" data-minZoom="1"></div>
 				</div>
 				
 				<?php /* ?>
